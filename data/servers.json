@@ -1,0 +1,14 @@
+{
+    "ark": [
+        {
+            "nombre": "srv-ark-1",
+            "mapa": "TheIsland",
+            "mods": "",
+            "cluster": "",
+            "puerto": 7787,
+            "estado": "activo"
+        }
+    ],
+    "minecraft": [],
+    "zomboid": []
+}

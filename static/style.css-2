@@ -1,0 +1,115 @@
+/* style.css */
+
+/* Reset de márgenes/paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Contenedor general */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #111;
+  color: #eee;
+  padding: 20px;
+}
+
+/* Título */
+h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Menú principal */
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.menu button {
+  background: #3366cc;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.menu button:hover {
+  background: #5599ff;
+}
+
+/* Grid de tarjetas */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
+/* Tarjeta */
+.card {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform .15s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* Cabecera de la tarjeta */
+.card-header {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+/* Cuerpo */
+.card-body {
+  flex: 1;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+.card-body div {
+  margin: 6px 0;
+}
+
+/* Estado */
+.status {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Botones de acción */
+.actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.actions button {
+  flex: 1;
+  font-size: 0.85rem;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-start  { background: #28a745; color: #fff; }
+.btn-stop   { background: #dc3545; color: #fff; }
+.btn-edit   { background: #17a2b8; color: #fff; }
+.btn-delete { background: #6c757d; color: #fff; }
+.actions button:hover {
+  opacity: 0.9;
+}

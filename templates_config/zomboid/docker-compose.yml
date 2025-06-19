@@ -1,0 +1,22 @@
+services:
+  zomboid-server:
+    image: linuxserver/project-zomboid:latest
+    container_name: pz-{{nombre_servidor}}
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: "Europe/Madrid"
+      SERVER_NAME: "{{nombre_servidor}}"
+      SERVER_PORT: "{{port_game}}"
+      MAX_PLAYERS: "{{max_players}}"
+      PASSWORD: "{{password}}"
+      PUBLIC: "{{public}}"          # "1" para público, "0" para privado
+      MAP: "{{mapa}}"              # e.g. TatteredRemnants
+      MODS: "{{mods}}"             # IDs separados por comas
+    ports:
+      - "{{port_game}}:16261/tcp"
+      - "{{port_query}}:16262/udp"
+      - "{{port_ssh}}:16263/tcp"
+    volumes:
+      - ./config:/config
+    restart: always

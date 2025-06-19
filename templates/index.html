@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>GameHub - Gestión de Servidores</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>GameHub – Gestión de Servidores</h1>
+  <div class="menu">
+    <button onclick="location.href='/nuevo_ark'">➕ Nuevo ARK</button>
+    <button onclick="location.href='/nuevo_minecraft'">➕ Nuevo Minecraft</button>
+    <button onclick="location.href='/nuevo_zomboid'">➕ Nuevo Zomboid</button>
+  </div>
+
+  <!-- SECCIÓN ARK -->
+  <section class="game-section">
+    <h2>ARK</h2>
+    {% if servers.ark %}
+      <div class="grid">
+        {% for srv in servers.ark %}
+        <div class="card">
+          <div class="card-header">{{ srv.nombre }}</div>
+          <div class="card-body">
+            <div class="status" style="color: {{ 'lime' if srv.estado=='activo' else 'red' }};">
+              {% if srv.estado=='activo' %}🟢 Activo{% else %}🔴 Parado{% endif %}
+            </div>
+            <div>Mapa: {{ srv.mapa }}</div>
+            <div>Mods: {{ srv.mods or 'ninguno' }}</div>
+            <div>Puerto: {{ srv.puerto }}</div>
+            <div>Cluster: {{ srv.cluster or '—' }}</div>
+          </div>
+          <div class="actions">
+            <button class="btn-restart" onclick="location.href='/reiniciar/{{ srv.nombre }}'">🔁 Reiniciar</button>
+            <button class="btn-stop"    onclick="location.href='/detener/{{ srv.nombre }}'">🛑 Detener</button>
+            <button class="btn-edit"    onclick="location.href='/editar/ark/{{ srv.nombre }}'">⚙️ Editar</button>
+            <button class="btn-delete"  onclick="location.href='/borrar/{{ srv.nombre }}'">🗑️ Borrar</button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="no-servers">No hay servidores de ARK.</p>
+    {% endif %}
+  </section>
+
+  <!-- SECCIÓN MINECRAFT -->
+  <section class="game-section">
+    <h2>Minecraft</h2>
+    {% if servers.minecraft %}
+      <div class="grid">
+        {% for srv in servers.minecraft %}
+        <div class="card">
+          <div class="card-header">{{ srv.nombre }}</div>
+          <div class="card-body">
+            <div class="status" style="color: {{ 'lime' if srv.estado=='activo' else 'red' }};">
+              {% if srv.estado=='activo' %}🟢 Activo{% else %}🔴 Parado{% endif %}
+            </div>
+            <div>Versión: {{ srv.version }}</div>
+            <div>RAM: {{ srv.memory }}M</div>
+            <div>Mundo: {{ srv.mundo }}</div>
+            <div>Puerto: {{ srv.puerto }}</div>
+          </div>
+          <div class="actions">
+            <button class="btn-start" onclick="location.href='/reiniciar/{{ srv.nombre }}'">▶️ Iniciar</button>
+            <button class="btn-stop"  onclick="location.href='/detener/{{ srv.nombre }}'">⏸️ Parar</button>
+            <button class="btn-edit"  onclick="location.href='/editar/minecraft/{{ srv.nombre }}'">⚙️ Editar</button>
+            <button class="btn-delete"onclick="location.href='/borrar/{{ srv.nombre }}'">🗑️ Borrar</button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="no-servers">No hay servidores de Minecraft.</p>
+    {% endif %}
+  </section>
+
+  <!-- SECCIÓN ZOMBOID -->
+  <section class="game-section">
+    <h2>Project Zomboid</h2>
+    {% if servers.zomboid %}
+      <div class="grid">
+        {% for srv in servers.zomboid %}
+        <div class="card">
+          <div class="card-header">{{ srv.nombre }}</div>
+          <div class="card-body">
+            <div class="status" style="color: {{ 'lime' if srv.estado=='activo' else 'red' }};">
+              {% if srv.estado=='activo' %}🟢 Activo{% else %}🔴 Parado{% endif %}
+            </div>
+            <div>Mapa: {{ srv.mapa }}</div>
+            <div>Mods: {{ srv.mods or 'ninguno' }}</div>
+            <div>Puerto: {{ srv.puerto }}</div>
+            <div>Público: {{ 'Sí' if srv.public=='1' else 'No' }}</div>
+          </div>
+          <div class="actions">
+            <button class="btn-start" onclick="location.href='/reiniciar/{{ srv.nombre }}'">▶️ Iniciar</button>
+            <button class="btn-stop"  onclick="location.href='/detener/{{ srv.nombre }}'">⏸️ Parar</button>
+            <button class="btn-edit"  onclick="location.href='/editar/zomboid/{{ srv.nombre }}'">⚙️ Editar</button>
+            <button class="btn-delete"onclick="location.href='/borrar/{{ srv.nombre }}'">🗑️ Borrar</button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="no-servers">No hay servidores de Zomboid.</p>
+    {% endif %}
+  </section>
+</body>
+</html>

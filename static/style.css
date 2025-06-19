@@ -1,0 +1,144 @@
+/* Secciones por juego */
+.game-section {
+  margin-bottom: 40px;
+}
+.game-section h2 {
+  font-size: 1.5rem;
+  color: #fff;
+  border-bottom: 2px solid #444;
+  padding-bottom: 6px;
+  margin: 30px auto 16px;
+  max-width: 1200px;
+}
+
+/* Mensaje de “no hay servidores” centrado */
+.no-servers {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  font-size: 1rem;
+  margin: 20px 0;
+}
+
+/* Ajustes de grid y cards (si no los tienes ya) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.card {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform .15s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+}
+.card-header {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.card-body div {
+  margin: 6px 0;
+  color: #ccc;
+}
+.status {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.actions button {
+  flex: 1;
+  font-size: 0.85rem;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-start  { background: #28a745; color: #fff; }
+.btn-stop   { background: #dc3545; color: #fff; }
+.btn-restart{ background: #ffc107; color: #000; }
+.btn-edit   { background: #17a2b8; color: #fff; }
+.btn-delete { background: #6c757d; color: #fff; }
+.actions button:hover {
+  opacity: 0.9;
+}
+
+/* Espaciado del body */
+body {
+  padding: 20px;
+  background: #111;
+  color: #eee;
+  font-family: 'Segoe UI', sans-serif;
+}
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.menu button {
+  background: #3366cc;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.menu button:hover {
+  background: #5599ff;
+}
+/* Login */
+.login-container {
+  width: 300px;
+  margin: 100px auto;
+  background: #222;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  text-align: center;
+}
+.login-container h1 {
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+.login-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 4px;
+}
+.login-container button {
+  width: 100%;
+  padding: 8px;
+  background: #3366cc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+.login-container button:hover {
+  background: #5599ff;
+}
+.flashes { list-style: none; padding: 0; margin-bottom: 12px; }
+.flashes .error { color: #ff6b6b; }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Crear Servidor ARK – GameHub</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>🦖 Crear nuevo servidor ARK</h1>
+  <form action="/crear_ark" method="post">
+    <label>Nombre visible:</label><br>
+    <input type="text" name="nombre" required><br><br>
+
+    <label>Mapa:</label><br>
+    <select name="mapa" required>
+      <option value="TheIsland">The Island</option>
+      <option value="ScorchedEarth_P">Scorched Earth</option>
+      <option value="Aberration_P">Aberration</option>
+      <option value="Ragnarok">Ragnarok</option>
+      <option value="Extinction">Extinction</option>
+      <option value="Valguero_P">Valguero</option>
+      <option value="Genesis">Genesis</option>
+      <option value="Genesis2">Genesis 2</option>
+      <option value="CrystalIsles">Crystal Isles</option>
+      <option value="LostIsland">Lost Island</option>
+      <option value="Fjordur">Fjordur</option>
+    </select><br><br>
+
+    <label>Mods (IDs separados por comas):</label><br>
+    <input type="text" name="mods"><br><br>
+
+    <label>Contraseña admin:</label><br>
+    <input type="text" name="adminpass"><br><br>
+
+    <label>Cluster ID (opcional):</label><br>
+    <input type="text" name="cluster"><br><br>
+
+    <label>Máx. jugadores:</label><br>
+    <input type="number" name="max_players" value="20" min="1"><br><br>
+
+    <button type="submit">🚀 Crear Servidor ARK</button>
+  </form>
+  <p><a href="/">← Volver al panel</a></p>
+</body>
+</html>

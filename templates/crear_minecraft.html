@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Crear Servidor Minecraft – GameHub</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>⛏️ Crear nuevo servidor Minecraft</h1>
+  <form action="/crear_minecraft" method="post">
+    <label>Nombre visible:</label><br>
+    <input type="text" name="nombre" required><br><br>
+
+    <label>Tipo/Versión:</label><br>
+    <select name="version" required>
+      <option value="vanilla">Vanilla</option>
+      <option value="paper">Paper</option>
+      <option value="spigot">Spigot</option>
+      <option value="forge">Forge</option>
+    </select><br><br>
+
+    <label>RAM (MB):</label><br>
+    <input type="number" name="memory" value="1024" min="512"><br><br>
+
+    <label>RCON Password:</label><br>
+    <input type="text" name="rcon_pass"><br><br>
+
+    <label>Descripción / MOTD:</label><br>
+    <input type="text" name="descripcion"><br><br>
+
+    <label>Nombre del mundo:</label><br>
+    <input type="text" name="mundo" value="world"><br><br>
+
+    <label>Operadores (nombres separados por comas):</label><br>
+    <input type="text" name="ops"><br><br>
+
+    <button type="submit">🚀 Crear Servidor MC</button>
+  </form>
+  <p><a href="/">← Volver al panel</a></p>
+</body>
+</html>

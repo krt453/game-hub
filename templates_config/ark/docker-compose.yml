@@ -1,0 +1,22 @@
+services:
+  ark-server:
+    image: thmhoag/arkserver:latest
+    container_name: ark-{{nombre_servidor}}
+    environment:
+      SESSION_NAME: "{{nombre_servidor}}"  # Nombre visible del servidor
+      SERVER_PASSWORD: ""                 # Contraseña de acceso (vacía = público)
+      ADMIN_PASSWORD: "adminpass"
+      MAX_PLAYERS: 20
+      MAP_NAME: "{{mapa}}"               # TheIsland, Ragnarok, etc.
+      MOD_IDS: "{{mods}}"                # Lista separada por comas (ej. 123456,789012)
+      CLUSTER_ID: "{{cluster}}"          # ID común para servidores conectados
+      TZ: "Europe/Madrid"
+    ports:
+      - "{{port_query}}:27015/udp"
+      - "{{port_rcon}}:27020/udp"
+      - "{{port_game}}:7777/udp"
+    volumes:
+      - ./save:/ark/save
+      - ./config:/ark/config
+      - ./mods:/ark/Mods
+    restart: always

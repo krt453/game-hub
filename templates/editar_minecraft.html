@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Editar {{ srv.nombre }} (Minecraft)</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>⚙️ Editar servidor MC: {{ srv.nombre }}</h1>
+  <form action="/editar/minecraft/{{ srv.nombre }}" method="post">
+    <label>Versión:</label><br>
+    <select name="version">
+      {% for v in ["vanilla","paper","spigot","forge"] %}
+      <option value="{{v}}" {% if srv.version==v %}selected{% endif %}>{{v}}</option>
+      {% endfor %}
+    </select><br><br>
+
+    <label>RAM (MB):</label><br>
+    <input type="number" name="memory" value="{{ srv.memory }}"><br><br>
+
+    <label>RCON Password:</label><br>
+    <input type="text" name="rcon_pass" value="{{ srv.rcon_pass }}"><br><br>
+
+    <label>MOTD:</label><br>
+    <input type="text" name="descripcion" value="{{ srv.descripcion }}"><br><br>
+
+    <label>Nombre mundo:</label><br>
+    <input type="text" name="mundo" value="{{ srv.mundo }}"><br><br>
+
+    <label>Ops (comas):</label><br>
+    <input type="text" name="ops" value="{{ srv.ops }}"><br><br>
+
+    <label>Puerto de juego:</label><br>
+    <input type="number" name="puerto" value="{{ srv.puerto }}"><br><br>
+
+    <button type="submit">💾 Guardar cambios</button>
+  </form>
+  <p><a href="/">← Volver</a></p>
+</body>
+</html>

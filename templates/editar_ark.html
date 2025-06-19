@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Editar {{ srv.nombre }} (ARK)</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>⚙️ Editar servidor ARK: {{ srv.nombre }}</h1>
+  <form action="/editar/ark/{{ srv.nombre }}" method="post">
+    <label>Mapa:</label><br>
+    <select name="mapa" required>
+      {% for m in ["TheIsland","ScorchedEarth_P","Aberration_P","Ragnarok","Extinction","Valguero_P","Genesis","Genesis2","CrystalIsles","LostIsland","Fjordur"] %}
+      <option value="{{m}}" {% if srv.mapa==m %}selected{% endif %}>{{m}}</option>
+      {% endfor %}
+    </select><br><br>
+
+    <label>Mods (IDs, comas):</label><br>
+    <input type="text" name="mods" value="{{ srv.mods }}"><br><br>
+
+    <label>Cluster ID:</label><br>
+    <input type="text" name="cluster" value="{{ srv.cluster }}"><br><br>
+
+    <label>Puerto de juego:</label><br>
+    <input type="number" name="puerto" value="{{ srv.puerto }}"><br><br>
+
+    <button type="submit">💾 Guardar cambios</button>
+  </form>
+  <p><a href="/">← Volver</a></p>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Editar {{ srv.nombre }} (Zomboid)</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>⚙️ Editar servidor Zomboid: {{ srv.nombre }}</h1>
+  <form action="/editar/zomboid/{{ srv.nombre }}" method="post">
+    <label>Mapa:</label><br>
+    <input type="text" name="mapa" value="{{ srv.mapa }}"><br><br>
+
+    <label>Mods (comas):</label><br>
+    <input type="text" name="mods" value="{{ srv.mods }}"><br><br>
+
+    <label>Contraseña:</label><br>
+    <input type="text" name="password" value="{{ srv.password }}"><br><br>
+
+    <label>¿Público?</label><br>
+    <select name="public">
+      <option value="1" {% if srv.public=='1' %}selected{% endif %}>Sí</option>
+      <option value="0" {% if srv.public=='0' %}selected{% endif %}>No</option>
+    </select><br><br>
+
+    <label>Máx. jugadores:</label><br>
+    <input type="number" name="max_players" value="{{ srv.max_players }}"><br><br>
+
+    <label>Puerto de juego:</label><br>
+    <input type="number" name="puerto" value="{{ srv.puerto }}"><br><br>
+
+    <button type="submit">💾 Guardar cambios</button>
+  </form>
+  <p><a href="/">← Volver</a></p>
+</body>
+</html>

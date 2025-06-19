@@ -1,0 +1,20 @@
+services:
+  mc-server:
+    image: itzg/minecraft-server:latest
+    container_name: mc-{{nombre_servidor}}
+    environment:
+      EULA: "TRUE"
+      VERSION: "{{version}}"            # vanilla, paper, spigot, forge...
+      MEMORY: "{{memory}}M"             # por ejemplo, 1024M, 2048M
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "{{rcon_pass}}"
+      MOTD: "{{descripcion}}"
+      LEVEL_NAME: "{{mundo}}"
+      OPS: "{{ops}}"                    # lista separada por comas de UUIDs o nombres
+    ports:
+      - "{{port_game}}:25565/tcp"
+      - "{{port_rcon}}:25575/tcp"
+    volumes:
+      - ./world:/data
+      - ./plugins:/data/plugins
+    restart: always

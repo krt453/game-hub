@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Crear Servidor Zomboid – GameHub</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>🧟 Crear nuevo servidor Project Zomboid</h1>
+  <form action="/crear_zomboid" method="post">
+    <label>Nombre visible:</label><br>
+    <input type="text" name="nombre" required><br><br>
+
+    <label>Mapa:</label><br>
+    <input type="text" name="mapa" value="TaintedRemnants"><br><br>
+
+    <label>Mods (IDs separados por comas):</label><br>
+    <input type="text" name="mods"><br><br>
+
+    <label>Contraseña (vacío = sin contraseña):</label><br>
+    <input type="text" name="password"><br><br>
+
+    <label>¿Público?</label><br>
+    <select name="public">
+      <option value="1">Sí</option>
+      <option value="0">No</option>
+    </select><br><br>
+
+    <label>Máx. jugadores:</label><br>
+    <input type="number" name="max_players" value="10" min="1"><br><br>
+
+    <button type="submit">🚀 Crear Servidor Zomboid</button>
+  </form>
+  <p><a href="/">← Volver al panel</a></p>
+</body>
+</html>
