@@ -7,6 +7,8 @@
 </head>
 <body>
   <h1>GameHub – Gestión de Servidores</h1>
+
+  <!-- MENÚ SUPERIOR -->
   <div class="menu">
     <button onclick="location.href='/nuevo_ark'">➕ Nuevo ARK</button>
     <button onclick="location.href='/nuevo_minecraft'">➕ Nuevo Minecraft</button>
@@ -31,10 +33,14 @@
             <div>Cluster: {{ srv.cluster or '—' }}</div>
           </div>
           <div class="actions">
-            <button class="btn-restart" onclick="location.href='/reiniciar/{{ srv.nombre }}'">🔁 Reiniciar</button>
-            <button class="btn-stop"    onclick="location.href='/detener/{{ srv.nombre }}'">🛑 Detener</button>
-            <button class="btn-edit"    onclick="location.href='/editar/ark/{{ srv.nombre }}'">⚙️ Editar</button>
-            <button class="btn-delete"  onclick="location.href='/borrar/{{ srv.nombre }}'">🗑️ Borrar</button>
+            <button class="btn-restart"
+                    onclick="location.href='/reiniciar/{{ srv.nombre }}'">🔁 Reiniciar</button>
+            <button class="btn-stop"
+                    onclick="location.href='/detener/{{ srv.nombre }}'">🛑 Detener</button>
+            <button class="btn-config"
+                    onclick="location.href='/config/{{ srv.nombre }}/'">⚙️ Ajustes</button>
+            <button class="btn-delete"
+                    onclick="location.href='/borrar/{{ srv.nombre }}'">🗑️ Borrar</button>
           </div>
         </div>
         {% endfor %}
@@ -62,10 +68,14 @@
             <div>Puerto: {{ srv.puerto }}</div>
           </div>
           <div class="actions">
-            <button class="btn-start" onclick="location.href='/reiniciar/{{ srv.nombre }}'">▶️ Iniciar</button>
-            <button class="btn-stop"  onclick="location.href='/detener/{{ srv.nombre }}'">⏸️ Parar</button>
-            <button class="btn-edit"  onclick="location.href='/editar/minecraft/{{ srv.nombre }}'">⚙️ Editar</button>
-            <button class="btn-delete"onclick="location.href='/borrar/{{ srv.nombre }}'">🗑️ Borrar</button>
+            <button class="btn-restart"
+                    onclick="location.href='/reiniciar/{{ srv.nombre }}'">▶️ Iniciar</button>
+            <button class="btn-stop"
+                    onclick="location.href='/detener/{{ srv.nombre }}'">⏸️ Parar</button>
+            <button class="btn-config"
+                    onclick="location.href='/config/{{ srv.nombre }}/'">⚙️ Ajustes</button>
+            <button class="btn-delete"
+                    onclick="location.href='/borrar/{{ srv.nombre }}'">🗑️ Borrar</button>
           </div>
         </div>
         {% endfor %}
@@ -93,10 +103,14 @@
             <div>Público: {{ 'Sí' if srv.public=='1' else 'No' }}</div>
           </div>
           <div class="actions">
-            <button class="btn-start" onclick="location.href='/reiniciar/{{ srv.nombre }}'">▶️ Iniciar</button>
-            <button class="btn-stop"  onclick="location.href='/detener/{{ srv.nombre }}'">⏸️ Parar</button>
-            <button class="btn-edit"  onclick="location.href='/editar/zomboid/{{ srv.nombre }}'">⚙️ Editar</button>
-            <button class="btn-delete"onclick="location.href='/borrar/{{ srv.nombre }}'">🗑️ Borrar</button>
+            <button class="btn-restart"
+                    onclick="location.href='/reiniciar/{{ srv.nombre }}'">▶️ Iniciar</button>
+            <button class="btn-stop"
+                    onclick="location.href='/detener/{{ srv.nombre }}'">⏸️ Parar</button>
+            <button class="btn-config"
+                    onclick="location.href='/config/{{ srv.nombre }}/'">⚙️ Ajustes</button>
+            <button class="btn-delete"
+                    onclick="location.href='/borrar/{{ srv.nombre }}'">🗑️ Borrar</button>
           </div>
         </div>
         {% endfor %}

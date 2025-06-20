@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Configuración – {{ instancia }}</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://kit.fontawesome.com/tu-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="sc-header">
+    <div class="title"><strong>GameHub Config</strong> – {{ instancia }}</div>
+    <div class="actions">
+      <i class="fas fa-play" title="Arrancar servidor"></i>
+      <i class="fas fa-stop" title="Detener servidor"></i>
+      <i class="fas fa-redo" title="Reiniciar servidor"></i>
+    </div>
+  </header>
+
+  <div class="sc-container">
+    <!-- SIDEBAR -->
+    <nav class="sc-sidebar">
+      <a href="{{ url_for('index') }}">Inicio</a>
+      <a href="{{ url_for('filebrowser', instancia=instancia) }}">Filebrowser</a>
+      <a href="{{ url_for('server_config', instancia=instancia) }}" class="active">Configuración</a>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="sc-main">
+      <h2>Base settings</h2>
+      <form method="post">
+        <fieldset>
+          <legend>Base settings</legend>
+          <label for="server_name">Server name</label>
+          <input type="text" id="server_name" name="server_name" value="{{ cfg.server_name }}">
+
+          <label for="server_password">Server password</label>
+          <input type="password" id="server_password" name="server_password" value="{{ cfg.server_password }}">
+
+          <label for="admin_password">Admin password</label>
+          <input type="password" id="admin_password" name="admin_password" value="{{ cfg.admin_password }}">
+
+          <label for="map_name">Mapname</label>
+          <select id="map_name" name="map_name">
+            {% for m in mapas_pre %}
+              <option value="{{ m }}" {% if cfg.map_name==m %}selected{% endif %}>{{ m }}</option>
+            {% endfor %}
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Gameplay</legend>
+          {% for field, label in [
+               ("enable_3rd_person","Enable 3rd person mode"),
+               ("enable_crosshair","Enable Crosshair"),
+               ("disable_pvp","Disable PVP & enable PVE"),
+               ("enable_hardcore","Enable Hardcore"),
+               ("enable_join_msg","Enable join message"),
+               ("enable_leave_msg","Enable leave message"),
+           ] %}
+          <div class="sc-checkbox">
+            <input type="checkbox" id="{{ field }}" name="{{ field }}"
+                   {% if cfg[field] %}checked{% endif %}>
+            <label for="{{ field }}">{{ label }}</label>
+          </div>
+          {% endfor %}
+        </fieldset>
+
+        <div class="sc-footer">
+          <button type="submit" class="btn-save">💾 Save changes</button>
+          <button type="button" class="btn-delete"
+                  onclick="if(confirm('¿Eliminar configuración?')) location.href='{{ url_for('delete_config', instancia=instancia) }}';">
+            🗑️ Delete Settings
+          </button>
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+</html>
