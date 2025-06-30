@@ -8,6 +8,16 @@
 <body>
   <h1>GameHub – Gestión de Servidores</h1>
 
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class="flashes">
+        {% for cat, msg in messages %}
+          <li class="{{cat}}">{{ msg }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
   <!-- MENÚ SUPERIOR -->
   <div class="menu">
     <button onclick="location.href='/nuevo_ark'">➕ Nuevo ARK</button>
